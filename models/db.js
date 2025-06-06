@@ -18,8 +18,8 @@ const pool = new Pool({
     password:process.env.DB_PASS_1,
     port:process.env.DB_PORT_1,
     ssl: {
-        // rejectUnauthorized: false
-        ca:fs.readFileSync('ca.pem').toString()
+        rejectUnauthorized: false
+        // ca:fs.readFileSync('ca.pem').toString()
     }
 
 })
