@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="/css/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Solutions Database</title>
+</head>
+<body class="bg-white text-black">
+    
+    <nav class="bg-white border-gray-200">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <i class="fa-solid fa-g" 
+                   style="font-size:xx-large; color: #d3d3d3; cursor: pointer; transition: color 0.3s ease;" 
+                   onmouseover="this.style.color='red'" 
+                   onmouseout="this.style.color='#d3d3d3'"
+                   aria-hidden="true"></i>
+                <span class="self-center text-2xl font-semibold whitespace-nowrap text-black">BoOK</span>
+            </a>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white">
+                    <li>
+                        <a href="/" class="block py-2 px-3 text-black bg-blue-200 rounded-sm md:bg-transparent md:text-blue-700 md:p-0" aria-current="page">Home</a>
+                    </li>
+                    <li>
+                        <a href="/design-methods" class="block py-2 px-3 text-black rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Design Methods</a>
+                    </li>
+                    <% if(currentUser && currentUser.role === 'admin') {%>
+                        <li>
+                            <a href="/logout" class="block py-2 px-3 text-black rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Logout</a>
+                        </li>
+                    <% } else { %>
+                        <li>
+                            <a href="/login" class="block py-2 px-3 text-black rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Login(Admin Only)</a>
+                        </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <!-- Your page content goes here -->
+    </div>
+
+</body>
+</html>

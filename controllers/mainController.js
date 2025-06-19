@@ -4,7 +4,16 @@ const mainController = {
     async showHome(req,res){
         try{
             const list = await queries.getNeedCategories();
-            res.render('index.ejs',{list});
+            res.render('home.ejs',{list});
+        }catch (err) {
+            res.status(500).send(err.message);
+        }
+    },
+
+    async showUseMethods(req,res){
+        try{
+            const useMethods = await queries.getUseMethods();
+            res.render('use_methods_akash.ejs',{useMethods});
         }catch (err) {
             res.status(500).send(err.message);
         }

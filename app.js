@@ -6,6 +6,10 @@ const path = require('path')
 const mainController = require('./controllers/mainController');
 const designController = require('./controllers/designMethodController');
 const authController = require('./controllers/authController');
+const userAuthController = require('./controllers/userAuthController');
+
+
+
 const queries = require('./models/queries')
 const methodOverride = require('method-override');
 
@@ -87,13 +91,57 @@ app.get('/login', authController.showLogin);
 app.post('/login', authController.login);
 app.get('/logout', authController.logout);
 
+// User Login routes
+app.get('/user/login', userAuthController.showLogin);
+// Example Express route
+app.post('/user/login', (req, res, next) => {
+  passport.authenticate('local', (err, user, info) => {
+    if (err) return next(err);
+    if (!user) {
+      return res.render('user/login_user', { error: 'Invalid username or password' });
+    }
+    req.logIn(user, err => {
+      if (err) return next(err);
+      return res.redirect('/');
+    });
+  })(req, res, next);
+});
+
+app.get('/user/logout', userAuthController.logout);
+app.get('/user/signup', userAuthController.showSignup);
+
 
 // View routes
+app.get('/search-methods', designController.showSearchMethods);
+
 app.get('/', mainController.showHome);
 app.get('/category/:categoryId', mainController.showNeeds);
 app.get('/subcategory/:subcategoryId', mainController.showSolutions);
 app.get('/design-methods',designController.showAllDesginMethods);
-
+app.get('/use-methods', mainController.showUseMethods);
+app.get('/search-filter-methods', (req, res) => {
+  res.render('search_and_filter_methods', { title: 'Search Filter Methods' });
+});
+app.get('/search-methods', (req, res) => {
+    const searchMethods = [
+        { id: 17, name: '6 Thinking Hats' },
+        { id: 16, name: 'Attribute Listing' },
+        { id: 1, name: 'Brainstorming' },
+        { id: 15, name: 'Crazy 8s' },
+        { id: 12, name: 'Lotus Blossom' },
+        { id: 13, name: 'Reverse Brainstorming' },
+        { id: 19, name: 'xbfn' },
+        { id: 6, name: 'Yes...And Method' },
+    ];
+    
+    res.render('search_methods_akash', { searchMethods });
+});
+app.get('/teach-methods', (req, res) => {
+    res.render('teach_methods');
+});
+app.get('/design-frameworks', (req, res) => {
+    res.render('design_frameworks');
+});
 // API routes
 app.post('/api/subcategories', mainController.addNeed);
 app.put('/api/subcategories/:id', mainController.updateNeed);

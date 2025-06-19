@@ -1,0 +1,29 @@
+.flex-container {
+    display: flex;
+    gap: 10px;
+    border: 2px solid blue;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+
+/* .flex-container div {
+    background-color: lightblue;
+    padding: 10px;
+    border: 1px solid navy;
+    min-width: 150px;
+} */
+
+.grid-container {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    border: 2px solid green;
+    padding: 10px;
+    margin-top: 20px; */
+}
+
+/* .grid-container div {
+    background-color: lightgreen;
+    padding: 10px;
+    border: 1px solid darkgreen;
+} */
