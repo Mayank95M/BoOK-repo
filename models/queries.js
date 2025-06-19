@@ -33,6 +33,19 @@ const queries = {
         const result = await pool.query('SELECT * FROM subcategories WHERE category_id = $1',[categoryId]);
         return result.rows
     },
+    //Search & Filter methods, Design Frameworks, Guidelines, Glossary, Courses, Project Database, Discussion Forum, Submit Your Methods
+    async getUseMethods() {
+        return [
+            { id: 1, name: 'Search & Filter methods', description: 'Description for Method 1' },
+            { id: 2, name: 'Design Frameworks', description: 'Description for Method 2' },
+            { id: 3, name: 'Guidelines', description: 'Description for Method 3' },
+            { id: 4, name: 'Glossary', description: 'Description for Method 4' },
+            { id: 5, name: 'Courses', description: 'Description for Method 5' },
+            { id: 6, name: 'Project Database', description: 'Description for Method 6' },
+            { id: 7, name: 'Discussion Forum', description: 'Description for Method 7' },
+            { id: 8, name: 'Submit Your Methods', description: 'Description for Method 8' }
+        ];
+    },
 
     async getSolutions(subcategoryId){
         const result = await pool.query(

@@ -1,0 +1,34 @@
+<%- include('partials/header_akash2') %>
+
+<div class="min-h-screen bg-white p-8">
+    
+    <!-- Heading aligned top-left -->
+    <div class="mb-20">
+        <h1 class="text-5xl font-semibold text-gray-900 md:text-5xl lg:text-5xl">
+            Design Frameworks
+        </h1>
+        <h2 class="text-xl text-gray-700 md:text-2xl lg:text-2xl mt-2">
+            Choose among the following design thinking and product design frameworks to learn more about them.
+        </h2>
+    </div>
+
+    <!-- Responsive Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
+        
+            <div class="w-64 bg-gray-200 border border-gray-400 rounded-lg shadow-sm hover:bg-white transition duration-300">
+                <a href="/design-thinking-frameworks" class="flex flex-col items-center p-4 h-full">
+                    <h5 class="text-xl text-gray-900 text-center">Design Thinking Frameworks</h5>
+                </a>
+            </div>
+
+            <div class="w-64 bg-gray-200 border border-gray-400 rounded-lg shadow-sm hover:bg-white transition duration-300">
+                <a href="/product-design-frameworks" class="flex flex-col items-center p-4 h-full">
+                    <h5 class="text-xl text-gray-900 text-center">Product Design Frameworks</h5>
+                </a>
+            </div>
+        
+    </div>
+
+</div>
+
+<%- include('partials/footer') %>
